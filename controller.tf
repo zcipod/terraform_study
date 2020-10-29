@@ -24,6 +24,15 @@ resource "google_compute_instance" "controller" {
 
   can_ip_forward = true
 
+  metadata_startup_script = join("", [
+    "cat > ~/ca.pem <<EOF \n${tls_self_signed_cert.ca.cert_pem}EOF\n",
+    "cat > ~/ca-key.pem <<EOF \n${tls_private_key.ca.private_key_pem}EOF\n",
+    "cat > ~/kubernetes.pem <<EOF \n${tls_locally_signed_cert.api-server.cert_pem}EOF\n",
+    "cat > ~/kubernetes-key.pem <<EOF \n${tls_private_key.api-server.private_key_pem}EOF\n",
+    "cat > ~/kubernetes.pem <<EOF \n${tls_locally_signed_cert.service-account.cert_pem}EOF\n",
+    "cat > ~/kubernetes-key.pem <<EOF \n${tls_private_key.service-account.private_key_pem}EOF\n"
+    ])
+
   service_account {
     scopes = ["compute-rw","storage-ro","service-management","service-control","logging-write","monitoring"]
   }

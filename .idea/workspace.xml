@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="91f9653d-6123-437c-965b-74de617a352f" name="默认更改列表" comment="">
+      <change afterPath="$PROJECT_DIR$/cert_API_server.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cert_admin.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cert_ca.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cert_kubelet.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/certificates.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller.tf" beforeDir="false" afterPath="$PROJECT_DIR$/controller.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network.tf" beforeDir="false" afterPath="$PROJECT_DIR$/network.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/variables.tf" beforeDir="false" afterPath="$PROJECT_DIR$/variables.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/worker.tf" beforeDir="false" afterPath="$PROJECT_DIR$/worker.tf" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1jTvirx99E2AJQIRNcQjOUj3UFk" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ACTIVE_CLOUD_PROJECT_ACCOUNT" value="zcipod168@gmail.com" />
+    <property name="ACTIVE_CLOUD_PROJECT_ID" value="kubernetes-the-hard-way-293704" />
+    <property name="ACTIVE_CLOUD_PROJECT_NAME" value="kubernetes-the-hard-way" />
+    <property name="ACTIVE_CLOUD_PROJECT_NUMBER" value="627625822099" />
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="TF_FMT" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/certs" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/certs" />
+      <recent name="$PROJECT_DIR$/certificates" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="91f9653d-6123-437c-965b-74de617a352f" name="默认更改列表" comment="" />
+      <created>1603841026050</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603841026050</updated>
+      <workItem from="1603841027589" duration="477000" />
+      <workItem from="1603841530044" duration="5494000" />
+      <workItem from="1603871108519" duration="9596000" />
+      <workItem from="1603890754198" duration="4259000" />
+      <workItem from="1603932833975" duration="8260000" />
+    </task>
+    <task id="LOCAL-00001" summary="instance&amp;network">
+      <created>1603882000256</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603882000256</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="instance&amp;network" />
+    <option name="LAST_COMMIT_MESSAGE" value="instance&amp;network" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1558" y="540" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603892360967">
+      <screen x="0" y="23" width="2484" height="1417" />
+    </state>
+    <state x="1558" y="540" key="#com.intellij.fileTypes.FileTypeChooser/0.23.2484.1417@0.23.2484.1417" timestamp="1603892360967" />
+    <state width="1172" height="409" key="GridCell.Tab.0.bottom" timestamp="1603889686683">
+      <screen x="0" y="23" width="2484" height="1417" />
+    </state>
+    <state width="1172" height="409" key="GridCell.Tab.0.bottom/0.23.2484.1417@0.23.2484.1417" timestamp="1603889686683" />
+    <state width="1172" height="409" key="GridCell.Tab.0.center" timestamp="1603889686682">
+      <screen x="0" y="23" width="2484" height="1417" />
+    </state>
+    <state width="1172" height="409" key="GridCell.Tab.0.center/0.23.2484.1417@0.23.2484.1417" timestamp="1603889686682" />
+    <state width="1172" height="409" key="GridCell.Tab.0.left" timestamp="1603889686681">
+      <screen x="0" y="23" width="2484" height="1417" />
+    </state>
+    <state width="1172" height="409" key="GridCell.Tab.0.left/0.23.2484.1417@0.23.2484.1417" timestamp="1603889686681" />
+    <state width="1172" height="409" key="GridCell.Tab.0.right" timestamp="1603889686682">
+      <screen x="0" y="23" width="2484" height="1417" />
+    </state>
+    <state width="1172" height="409" key="GridCell.Tab.0.right/0.23.2484.1417@0.23.2484.1417" timestamp="1603889686682" />
+    <state x="1378" y="370" key="SettingsEditor" timestamp="1603841504343">
+      <screen x="0" y="23" width="2484" height="1417" />
+    </state>
+    <state x="1378" y="370" key="SettingsEditor/0.23.2484.1417@0.23.2484.1417" timestamp="1603841504343" />
+    <state x="1661" y="627" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1603881988530">
+      <screen x="0" y="23" width="2484" height="1417" />
+    </state>
+    <state x="1661" y="627" key="git4idea.remote.GitConfigureRemotesDialog/0.23.2484.1417@0.23.2484.1417" timestamp="1603881988530" />
+  </component>
+</project>

@@ -45,6 +45,6 @@ resource "google_compute_firewall" "firewall-allow-external" {
   source_ranges = ["0.0.0.0/0"]
 }
 
-data "google_compute_address" "public_address" {
+resource "google_compute_address" "public_address" {
   name = var.PUBLIC_ADDRESS_NAME
 }

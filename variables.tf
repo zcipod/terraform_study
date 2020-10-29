@@ -19,7 +19,7 @@ variable "CONTROLLER_NAME" {
 }
 
 variable "CONTROLLER_NUM" {
-  default = 3
+  default = 1
 }
 
 variable "CONTROLLER_TYPE" {
@@ -31,7 +31,7 @@ variable "WORKER_NAME" {
 }
 
 variable "WORKER_NUM" {
-  default = 3
+  default = 1
 }
 
 variable "WORKER_TYPE" {
@@ -45,3 +45,27 @@ variable "PROJECT_ID" {
 variable "PUBLIC_ADDRESS_NAME" {
   default = "kubernetes-the-hard-way"
 }
+
+//variable "SSH_KEY_NAME" {
+//  default = "kubernetes-key"
+//}
+
+variable "ORGANIZATION_NAME" {
+  default = "Kubernetes"
+}
+
+variable "COMMON_NAME" {
+  default = "Kubernetes-the-hard-way"
+}
+
+variable "STATE" {
+  default = "NSW"
+}
+
+variable "CITY" {
+  default = "Sydney"
+}
+
+//locals {
+//  controller_cert = ""
+//}
