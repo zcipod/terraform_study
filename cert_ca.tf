@@ -33,10 +33,10 @@ data "archive_file" "ca-key-pair" {
   output_path = "tf-result/ca.zip"
   source {
   content = tls_private_key.ca.private_key_pem
-  filename = "private_key.pem"
+  filename = "ca-key.pem"
   }
   source {
   content = tls_self_signed_cert.ca.cert_pem
-  filename = "cert.pem"
+  filename = "ca.pem"
   }
 }

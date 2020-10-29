@@ -20,14 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91f9653d-6123-437c-965b-74de617a352f" name="默认更改列表" comment="">
-      <change afterPath="$PROJECT_DIR$/cert_API_server.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cert_admin.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cert_ca.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cert_kubelet.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/certificates.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script/ca-config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script/worker.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cert_ca.tf" beforeDir="false" afterPath="$PROJECT_DIR$/cert_ca.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cert_controller.tf" beforeDir="false" afterPath="$PROJECT_DIR$/cert_controller_manager.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cert_kubelet.tf" beforeDir="false" afterPath="$PROJECT_DIR$/cert_kubelet.tf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller.tf" beforeDir="false" afterPath="$PROJECT_DIR$/controller.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network.tf" beforeDir="false" afterPath="$PROJECT_DIR$/network.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform.tfstate" beforeDir="false" afterPath="$PROJECT_DIR$/terraform.tfstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform.tfstate.backup" beforeDir="false" afterPath="$PROJECT_DIR$/terraform.tfstate.backup" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/variables.tf" beforeDir="false" afterPath="$PROJECT_DIR$/variables.tf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/worker.tf" beforeDir="false" afterPath="$PROJECT_DIR$/worker.tf" afterDir="false" />
     </list>
@@ -61,6 +62,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/script" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -80,7 +82,7 @@
       <workItem from="1603841530044" duration="5494000" />
       <workItem from="1603871108519" duration="9596000" />
       <workItem from="1603890754198" duration="4259000" />
-      <workItem from="1603932833975" duration="8260000" />
+      <workItem from="1603932833975" duration="25652000" />
     </task>
     <task id="LOCAL-00001" summary="instance&amp;network">
       <created>1603882000256</created>
@@ -89,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603882000256</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="auto generate certs and distribute to instances">
+      <created>1603943769947</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603943769947</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,7 +118,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="instance&amp;network" />
-    <option name="LAST_COMMIT_MESSAGE" value="instance&amp;network" />
+    <MESSAGE value="auto generate certs and distribute to instances" />
+    <option name="LAST_COMMIT_MESSAGE" value="auto generate certs and distribute to instances" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1558" y="540" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603892360967">

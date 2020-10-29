@@ -50,21 +50,21 @@ variable "PUBLIC_ADDRESS_NAME" {
 //  default = "kubernetes-key"
 //}
 
-variable "ORGANIZATION_NAME" {
-  default = "Kubernetes"
-}
-
-variable "COMMON_NAME" {
-  default = "Kubernetes-the-hard-way"
-}
-
-variable "STATE" {
-  default = "NSW"
-}
-
-variable "CITY" {
-  default = "Sydney"
-}
+//variable "ORGANIZATION_NAME" {
+//  default = "Kubernetes"
+//}
+//
+//variable "COMMON_NAME" {
+//  default = "Kubernetes-the-hard-way"
+//}
+//
+//variable "STATE" {
+//  default = "NSW"
+//}
+//
+//variable "CITY" {
+//  default = "Sydney"
+//}
 
 //locals {
 //  controller_cert = ""
