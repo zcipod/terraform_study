@@ -5,7 +5,7 @@ resource "tls_private_key" "service-account" {
 
 resource "tls_cert_request" "service-account" {
   key_algorithm   = "RSA"
-  private_key_pem = tls_private_key.scheduler.private_key_pem
+  private_key_pem = tls_private_key.service-account.private_key_pem
 
   subject {
     common_name = "service-account"

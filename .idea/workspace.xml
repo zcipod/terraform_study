@@ -20,17 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91f9653d-6123-437c-965b-74de617a352f" name="默认更改列表" comment="">
-      <change afterPath="$PROJECT_DIR$/script/ca-config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/script/worker.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cert_ca.tf" beforeDir="false" afterPath="$PROJECT_DIR$/cert_ca.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cert_controller.tf" beforeDir="false" afterPath="$PROJECT_DIR$/cert_controller_manager.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cert_kubelet.tf" beforeDir="false" afterPath="$PROJECT_DIR$/cert_kubelet.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cert_service_account.tf" beforeDir="false" afterPath="$PROJECT_DIR$/cert_service_account.tf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller.tf" beforeDir="false" afterPath="$PROJECT_DIR$/controller.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform.tfstate" beforeDir="false" afterPath="$PROJECT_DIR$/terraform.tfstate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform.tfstate.backup" beforeDir="false" afterPath="$PROJECT_DIR$/terraform.tfstate.backup" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/ca-config.json" beforeDir="false" afterPath="$PROJECT_DIR$/script/ca-config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/variables.tf" beforeDir="false" afterPath="$PROJECT_DIR$/variables.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worker.tf" beforeDir="false" afterPath="$PROJECT_DIR$/worker.tf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +76,7 @@
       <workItem from="1603841530044" duration="5494000" />
       <workItem from="1603871108519" duration="9596000" />
       <workItem from="1603890754198" duration="4259000" />
-      <workItem from="1603932833975" duration="25652000" />
+      <workItem from="1603932833975" duration="31058000" />
     </task>
     <task id="LOCAL-00001" summary="instance&amp;network">
       <created>1603882000256</created>
@@ -98,7 +92,21 @@
       <option name="project" value="LOCAL" />
       <updated>1603943769947</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="generate kubeconfig on instances">
+      <created>1603972250648</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1603972250648</updated>
+    </task>
+    <task id="LOCAL-00004" summary="del state file">
+      <created>1603972276584</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1603972276584</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,7 +127,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="instance&amp;network" />
     <MESSAGE value="auto generate certs and distribute to instances" />
-    <option name="LAST_COMMIT_MESSAGE" value="auto generate certs and distribute to instances" />
+    <MESSAGE value="generate kubeconfig on instances" />
+    <MESSAGE value="del state file" />
+    <option name="LAST_COMMIT_MESSAGE" value="del state file" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1558" y="540" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603892360967">
@@ -146,6 +156,10 @@
       <screen x="0" y="23" width="2484" height="1417" />
     </state>
     <state x="1378" y="370" key="SettingsEditor/0.23.2484.1417@0.23.2484.1417" timestamp="1603841504343" />
+    <state x="842" y="471" key="Vcs.Push.Dialog.v2" timestamp="1603972291640">
+      <screen x="0" y="23" width="2484" height="1417" />
+    </state>
+    <state x="842" y="471" key="Vcs.Push.Dialog.v2/0.23.2484.1417@0.23.2484.1417" timestamp="1603972291640" />
     <state x="1661" y="627" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1603881988530">
       <screen x="0" y="23" width="2484" height="1417" />
     </state>

@@ -19,7 +19,7 @@ variable "CONTROLLER_NAME" {
 }
 
 variable "CONTROLLER_NUM" {
-  default = 1
+  default = 3
 }
 
 variable "CONTROLLER_TYPE" {
@@ -31,7 +31,7 @@ variable "WORKER_NAME" {
 }
 
 variable "WORKER_NUM" {
-  default = 1
+  default = 3
 }
 
 variable "WORKER_TYPE" {
