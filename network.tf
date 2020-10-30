@@ -45,6 +45,21 @@ resource "google_compute_firewall" "firewall-allow-external" {
   source_ranges = ["0.0.0.0/0"]
 }
 
+resource "google_compute_firewall" "firewall-allow-health-check" {
+  name    = "kubernetes-the-hard-way-allow-health-check"
+  network = google_compute_network.vpc_network.id
+
+  allow {
+    protocol = "tcp"
+  }
+
+  source_ranges = [
+    "209.85.152.0/22",
+    "209.85.204.0/22",
+    "35.191.0.0/16"
+  ]
+}
+
 resource "google_compute_address" "public_address" {
   name = var.PUBLIC_ADDRESS_NAME
 }
