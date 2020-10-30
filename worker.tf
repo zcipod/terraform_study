@@ -39,7 +39,7 @@ resource "google_compute_instance" "worker" {
     host = self.network_interface[0].access_config[0].nat_ip
   }
 
-  metadata_startup_script = "echo test"
+//  metadata_startup_script = "echo test"
 //  metadata_startup_script = join("", [
 //    "cat > ~/ca.pem <<EOF \n${tls_self_signed_cert.ca.cert_pem}EOF\n",
 //    "cat > ~/ca-key.pem <<EOF \n${tls_private_key.ca.private_key_pem}EOF\n",
@@ -152,6 +152,10 @@ resource "google_compute_instance" "worker" {
       "kubectl config use-context default --kubeconfig=kube-proxy.kubeconfig",
       "rm ca-key.pem"
     ]
+  }
+
+  provisioner "remote-exec" {
+    script = "script/bootstrapping_kubernetes_workers.sh"
   }
 
   service_account {
