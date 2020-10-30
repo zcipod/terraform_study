@@ -128,7 +128,8 @@ resource "google_compute_instance" "controller" {
 
     // configure kubernetes API Server
     "mkdir -p /var/lib/kubernetes/\n",
-    "mv ca.pem ca-key.pem kubernetes-key.pem kubernetes.pem service-account-key.pem service-account.pem service-account-key.pem service-account.pem encryption-config.yaml /var/lib/kubernetes/\n",
+    "cp ca.pem /var/lib/kubernetes/\n",
+    "mv ca-key.pem kubernetes-key.pem kubernetes.pem service-account-key.pem service-account.pem service-account-key.pem service-account.pem encryption-config.yaml /var/lib/kubernetes/\n",
 
     "cat <<EOF | tee /etc/systemd/system/kube-apiserver.service\n",
     "[Unit]\n",
@@ -285,9 +286,17 @@ resource "google_compute_instance" "controller" {
     "   kind: User\n",
     "   name: kubernetes\n",
     "EOF\n",
+
+    // Configuring kubectl for Remote Control
+    "kubectl config set-cluster kubernetes-the-hard-way --certificate-authority=ca.pem --embed-certs=true --server=https://${google_compute_address.public_address.address}:6443\n",
+    "kubectl config set-credentials admin --client-certificate=admin.pem --client-key=admin-key.pem\n",
+    "kubectl config set-context kubernetes-the-hard-way --cluster=kubernetes-the-hard-way --user=admin\n",
+    "kubectl config use-context kubernetes-the-hard-way\n",
+
     "fi\n",
 
   ])
+
 
 
 

@@ -39,7 +39,7 @@ resource "google_compute_instance" "worker" {
     host = self.network_interface[0].access_config[0].nat_ip
   }
 
-//  metadata_startup_script = "echo test"
+  metadata_startup_script = "echo test"
 //  metadata_startup_script = join("", [
 //    "cat > ~/ca.pem <<EOF \n${tls_self_signed_cert.ca.cert_pem}EOF\n",
 //    "cat > ~/ca-key.pem <<EOF \n${tls_private_key.ca.private_key_pem}EOF\n",
