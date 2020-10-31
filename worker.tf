@@ -25,6 +25,12 @@ resource "google_compute_instance" "worker" {
     }
   }
 
+  service_account {
+    scopes = ["compute-rw","storage-ro","service-management","service-control","logging-write","monitoring"]
+  }
+
+  tags = ["kubernetes-the-hard-way", "worker"]
+
   can_ip_forward = true
 
   metadata = {
@@ -78,6 +84,7 @@ resource "google_compute_instance" "worker" {
 //    "kubectl config use-context default --kubeconfig=kube-proxy.kubeconfig\n",
 //  ])
 
+
   provisioner "file" {
     content     = tls_self_signed_cert.ca.cert_pem
     destination = "~/ca.pem"
@@ -86,6 +93,7 @@ resource "google_compute_instance" "worker" {
     content     = tls_private_key.ca.private_key_pem
     destination = "~/ca-key.pem"
   }
+
   provisioner "file" {
     content     = tls_locally_signed_cert.proxy.cert_pem
     destination = "~/kube-proxy.pem"
@@ -117,6 +125,15 @@ resource "google_compute_instance" "worker" {
       "mv cfssl cfssljson /usr/local/bin/",
     ]
   }
+
+//  provisioner "file" {
+//    source     = "certs/${var.WORKER_NAME}-${count.index}.pem"
+//    destination = "~/${var.WORKER_NAME}-${count.index}.pem"
+//  }
+//  provisioner "file" {
+//    source     = "certs/${var.WORKER_NAME}-${count.index}-key.pem"
+//    destination = "~/${var.WORKER_NAME}-${count.index}-key.pem"
+//  }
 
   provisioner "remote-exec" {
     inline = [
@@ -158,9 +175,12 @@ resource "google_compute_instance" "worker" {
     script = "script/bootstrapping_kubernetes_workers.sh"
   }
 
-  service_account {
-    scopes = ["compute-rw","storage-ro","service-management","service-control","logging-write","monitoring"]
+  provisioner "remote-exec" {
+    inline = [
+      # Start the Worker Services
+      "systemctl daemon-reload",
+      "systemctl enable containerd kubelet kube-proxy",
+      "systemctl start containerd kubelet kube-proxy",
+    ]
   }
-
-  tags = ["kubernetes-the-hard-way", "worker"]
 }

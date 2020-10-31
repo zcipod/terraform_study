@@ -173,7 +173,3 @@ RestartSec=5
 WantedBy=multi-user.target
 EOF
 
-# Start the Worker Services
-sudo systemctl daemon-reload
-sudo systemctl enable containerd kubelet kube-proxy
-sudo systemctl start containerd kubelet kube-proxy
