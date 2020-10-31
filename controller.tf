@@ -1,5 +1,8 @@
 locals {
-  cluster = join(",",[for i in range(var.WORKER_NUM): "${var.CONTROLLER_NAME}-${i}=https://10.240.0.1${i}:2380"])
+  cluster = join(",",[for i in range(var.CONTROLLER_NUM): "${var.CONTROLLER_NAME}-${i}=https://10.240.0.1${i}:2380"])
+}
+locals {
+  cluster-2379 = join(",",[for i in range(var.CONTROLLER_NUM): "https://10.240.0.1${i}:2379"])
 }
 
 resource "google_compute_instance" "controller" {
@@ -26,6 +29,12 @@ resource "google_compute_instance" "controller" {
     }
   }
 
+  service_account {
+    scopes = ["compute-rw","storage-ro","service-management","service-control","logging-write","monitoring"]
+  }
+
+  tags = ["kubernetes-the-hard-way", "controller"]
+
   can_ip_forward = true
 
   metadata_startup_script = join("", [
@@ -35,12 +44,14 @@ resource "google_compute_instance" "controller" {
     "cat > ~/kubernetes-key.pem <<EOF \n${tls_private_key.api-server.private_key_pem}EOF\n",
     "cat > ~/service-account.pem <<EOF \n${tls_locally_signed_cert.service-account.cert_pem}EOF\n",
     "cat > ~/service-account-key.pem <<EOF \n${tls_private_key.service-account.private_key_pem}EOF\n",
-    "cat > ~/kube-controller-namager.pem <<EOF \n${tls_locally_signed_cert.controller.cert_pem}EOF\n",
-    "cat > ~/kube-controller-namager-key.pem <<EOF \n${tls_private_key.controller.private_key_pem}EOF\n",
+    "cat > ~/kube-controller-manager.pem <<EOF \n${tls_locally_signed_cert.controller.cert_pem}EOF\n",
+    "cat > ~/kube-controller-manager-key.pem <<EOF \n${tls_private_key.controller.private_key_pem}EOF\n",
     "cat > ~/kube-scheduler.pem <<EOF \n${tls_locally_signed_cert.scheduler.cert_pem}EOF\n",
     "cat > ~/kube-scheduler-key.pem <<EOF \n${tls_private_key.scheduler.private_key_pem}EOF\n",
     "cat > ~/admin.pem <<EOF \n${tls_locally_signed_cert.admin.cert_pem}EOF\n",
     "cat > ~/admin-key.pem <<EOF \n${tls_private_key.admin.private_key_pem}EOF\n",
+    "cat > ~/apiserver_create_role.yaml <<EOF \n${file("script/apiserver_create_role.yaml")}EOF\n",
+    "cat > ~/apiserver_role_bind.yaml <<EOF \n${file("script/apiserver_role_bind.yaml")}EOF\n",
 
 
     // install kubectl
@@ -49,9 +60,9 @@ resource "google_compute_instance" "controller" {
     "chmod +x kubectl\n",
     "mv kubectl /usr/local/bin/\n",
 
-    // kube-controller-namager configuration file
+    // kube-controller-manager configuration file
     "kubectl config set-cluster kubernetes-the-hard-way --certificate-authority=ca.pem --embed-certs=true --server=https://127.0.0.1:6443 --kubeconfig=kube-controller-manager.kubeconfig\n",
-    "kubectl config set-credentials system:kube-controller-manager --client-certificate=kube-controller-namager.pem --client-key=kube-controller-namager-key.pem --embed-certs=true --kubeconfig=kube-controller-manager.kubeconfig\n",
+    "kubectl config set-credentials system:kube-controller-manager --client-certificate=kube-controller-manager.pem --client-key=kube-controller-manager-key.pem --embed-certs=true --kubeconfig=kube-controller-manager.kubeconfig\n",
     "kubectl config set-context default --cluster=kubernetes-the-hard-way --user=system:kube-controller-manager --kubeconfig=kube-controller-manager.kubeconfig\n",
     "kubectl config use-context default --kubeconfig=kube-controller-manager.kubeconfig\n",
 
@@ -151,7 +162,7 @@ resource "google_compute_instance" "controller" {
     "--etcd-cafile=/var/lib/kubernetes/ca.pem \\\n",
     "--etcd-certfile=/var/lib/kubernetes/kubernetes.pem \\\n",
     "--etcd-keyfile=/var/lib/kubernetes/kubernetes-key.pem \\\n",
-    "--etcd-servers=https://10.240.0.10:2379,https://10.240.0.11:2379,https://10.240.0.12:2379 \\\n",
+    "--etcd-servers=${local.cluster-2379} \\\n",
     "--event-ttl=1h \\\n",
     "--encryption-provider-config=/var/lib/kubernetes/encryption-config.yaml \\\n",
     "--kubelet-certificate-authority=/var/lib/kubernetes/ca.pem \\\n",
@@ -227,7 +238,7 @@ resource "google_compute_instance" "controller" {
     "systemctl enable kube-apiserver kube-controller-manager kube-scheduler\n",
     "systemctl start kube-apiserver kube-controller-manager kube-scheduler\n",
 
-    // enable HTTP health checkes
+    // enable HTTP health checks
     "apt-get update\n",
     "apt-get install -y nginx\n",
     "cat > kubernetes.default.svc.cluster.local <<EOF\n",
@@ -248,44 +259,9 @@ resource "google_compute_instance" "controller" {
     "systemctl restart nginx\n",
 
     // RBAC for kubelet authorization
-    "if [${count.index}=0]; then\n",
-    "cat <<EOF | kubectl apply --kubeconfig admin.kubeconfig -f -\n",
-    "apiVersion: rbac.authorization.k8s.io/v1beta1\n",
-    "kind: ClusterRole\n",
-    "metadata:\n",
-    "  annotations:\n",
-    "   rbac.authorization.kubernetes.io/autoupdate: \"true\"\n",
-    " labels:\n",
-    "   kubernetes.io/bootstrapping: rbac-defaults\n",
-    " name: system:kube-apiserver-to-kubelet\n",
-    "rules:\n",
-    " - apiGroups:\n",
-    "     - \"\"\n",
-    "   resources:\n",
-    "     - nodes/proxy\n",
-    "     - nodes/stats\n",
-    "     - nodes/log\n",
-    "     - nodes/spec\n",
-    "     - nodes/metrics\n",
-    "   verbs:\n",
-    "     - \"*\"\n",
-    "EOF\n",
-
-    "cat <<EOF | kubectl apply --kubeconfig admin.kubeconfig -f -\n",
-    "apiVersion: rbac.authorization.k8s.io/v1beta1\n",
-    "kind: ClusterRoleBinding\n",
-    "metadata:\n",
-    " name: system:kube-apiserver\n",
-    " namespace: \"\"\n",
-    "roleRef:\n",
-    " apiGroup: rbac.authorization.k8s.io\n",
-    " kind: ClusterRole\n",
-    " name: system:kube-apiserver-to-kubelet\n",
-    "subjects:\n",
-    " - apiGroup: rbac.authorization.k8s.io\n",
-    "   kind: User\n",
-    "   name: kubernetes\n",
-    "EOF\n",
+//    "if [${count.index}=0]; then\n",
+    "kubectl apply --kubeconfig admin.kubeconfig -f apiserver_create_role.yaml\n",
+    "kubectl apply --kubeconfig admin.kubeconfig -f apiserver_role_bind.yaml\n",
 
     // Configuring kubectl for Remote Control
     "kubectl config set-cluster kubernetes-the-hard-way --certificate-authority=ca.pem --embed-certs=true --server=https://${google_compute_address.public_address.address}:6443\n",
@@ -293,17 +269,13 @@ resource "google_compute_instance" "controller" {
     "kubectl config set-context kubernetes-the-hard-way --cluster=kubernetes-the-hard-way --user=admin\n",
     "kubectl config use-context kubernetes-the-hard-way\n",
 
-    "fi\n",
-
+    // Deploying DNS Cluster Add-on
+    "echo start sleep > sleep\n",
+    "sleep 2m\n",
+    "kubectl apply -f https://storage.googleapis.com/kubernetes-the-hard-way/coredns-1.7.0.yaml\n",
+    "kubectl create secret generic kubernetes-the-hard-way --from-literal=\"mykey=mydata\"\n",
+//    "fi\n",
+    "rm sleep\n",
+    "echo finished! > finished\n",
   ])
-
-
-
-
-
-  service_account {
-    scopes = ["compute-rw","storage-ro","service-management","service-control","logging-write","monitoring"]
-  }
-
-  tags = ["kubernetes-the-hard-way", "controller"]
 }
