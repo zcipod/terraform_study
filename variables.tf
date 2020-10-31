@@ -11,7 +11,7 @@ variable "VPC_NAME" {
 }
 
 variable "SUBNET_NAME" {
-  default = "kubernetes-subnet"
+  default = "kubernetes"
 }
 
 variable "CONTROLLER_NAME" {
@@ -19,7 +19,7 @@ variable "CONTROLLER_NAME" {
 }
 
 variable "CONTROLLER_NUM" {
-  default = 3
+  default = 2
 }
 
 variable "CONTROLLER_TYPE" {

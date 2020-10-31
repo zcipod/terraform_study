@@ -259,7 +259,7 @@ resource "google_compute_instance" "controller" {
     "systemctl restart nginx\n",
 
     // RBAC for kubelet authorization
-//    "if [${count.index}=0]; then\n",
+    "if [ ${count.index} = 0 ]; then\n",
     "kubectl apply --kubeconfig admin.kubeconfig -f apiserver_create_role.yaml\n",
     "kubectl apply --kubeconfig admin.kubeconfig -f apiserver_role_bind.yaml\n",
 
@@ -274,8 +274,9 @@ resource "google_compute_instance" "controller" {
     "sleep 2m\n",
     "kubectl apply -f https://storage.googleapis.com/kubernetes-the-hard-way/coredns-1.7.0.yaml\n",
     "kubectl create secret generic kubernetes-the-hard-way --from-literal=\"mykey=mydata\"\n",
-//    "fi\n",
     "rm sleep\n",
+    "fi\n",
+
     "echo finished! > finished\n",
   ])
 }

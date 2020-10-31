@@ -62,4 +62,5 @@ resource "google_compute_firewall" "firewall-allow-health-check" {
 
 resource "google_compute_address" "public_address" {
   name = var.PUBLIC_ADDRESS_NAME
+  region = var.REGION
 }
