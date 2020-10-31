@@ -19,7 +19,7 @@ resource "tls_self_signed_cert" "ca" {
   ]
 
   subject {
-    common_name = "Kubernetes-CA"
+    common_name = "Kubernetes"
     organization = "Kubernetes"
     organizational_unit = "CA"
     country = "AU"
@@ -28,15 +28,26 @@ resource "tls_self_signed_cert" "ca" {
   }
 }
 
-data "archive_file" "ca-key-pair" {
-  type = "zip"
-  output_path = "tf-result/ca.zip"
-  source {
-  content = tls_private_key.ca.private_key_pem
-  filename = "ca-key.pem"
-  }
-  source {
-  content = tls_self_signed_cert.ca.cert_pem
-  filename = "ca.pem"
-  }
+resource "local_file" "ca-pem" {
+  filename = "certs/ca.pem"
+  sensitive_content = tls_self_signed_cert.ca.cert_pem
 }
+
+resource "local_file" "ca-key-pem" {
+  filename = "certs/ca-key.pem"
+  sensitive_content = tls_private_key.ca.private_key_pem
+}
+
+
+//data "archive_file" "ca-key-pair" {
+//  type = "zip"
+//  output_path = "tf-result/ca.zip"
+//  source {
+//  content = tls_private_key.ca.private_key_pem
+//  filename = "ca-key.pem"
+//  }
+//  source {
+//  content = tls_self_signed_cert.ca.cert_pem
+//  filename = "ca.pem"
+//  }
+//}

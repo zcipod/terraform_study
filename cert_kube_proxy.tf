@@ -9,7 +9,7 @@ resource "tls_cert_request" "proxy" {
 
   subject {
     common_name = "system:kube-proxy"
-    organization = "system:kube-proxy"
+    organization = "system:node-proxier"
     organizational_unit = "Kubernetes The Hard Way"
     country = "AU"
     province = "NSW"
@@ -33,15 +33,25 @@ resource "tls_locally_signed_cert" "proxy" {
   ]
 }
 
-data "archive_file" "proxy-key-pair" {
-  type = "zip"
-  output_path = "tf-result/proxy.zip"
-  source {
-    content = tls_private_key.proxy.private_key_pem
-    filename = "kube-proxy.key.pem"
-  }
-  source {
-    content = tls_locally_signed_cert.proxy.cert_pem
-    filename = "kube-proxy.pem"
-  }
+resource "local_file" "proxy-pem" {
+  filename = "certs/kube-proxy.pem"
+  sensitive_content = tls_locally_signed_cert.proxy.cert_pem
 }
+
+resource "local_file" "proxy-key-pem" {
+  filename = "certs/kube-proxy-key.pem"
+  sensitive_content = tls_private_key.proxy.private_key_pem
+}
+
+//data "archive_file" "proxy-key-pair" {
+//  type = "zip"
+//  output_path = "tf-result/proxy.zip"
+//  source {
+//    content = tls_private_key.proxy.private_key_pem
+//    filename = "kube-proxy.key.pem"
+//  }
+//  source {
+//    content = tls_locally_signed_cert.proxy.cert_pem
+//    filename = "kube-proxy.pem"
+//  }
+//}

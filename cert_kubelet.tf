@@ -1,4 +1,4 @@
-//// generate Kubelet Client Certificate
+// generate Kubelet Client Certificate
 //resource "tls_private_key" "kubelet" {
 //  algorithm = "RSA"
 //  count = var.WORKER_NUM
@@ -40,7 +40,20 @@
 //    "digital_signature"
 //  ]
 //}
+
+//resource "local_file" "kubelet-pem" {
+//  count = var.WORKER_NUM
+//  filename = "certs/${var.WORKER_NAME}-${count.index}.pem"
+//  sensitive_content = tls_locally_signed_cert.kubelet[count.index].cert_pem
+//}
 //
+//resource "local_file" "kubelet-key-pem" {
+//  count = var.WORKER_NUM
+//  filename = "certs/${var.WORKER_NAME}-${count.index}-key.pem"
+//  sensitive_content = tls_private_key.kubelet[count.index].private_key_pem
+//}
+
+
 //data "archive_file" "kubelet-key-pair" {
 //  count = var.WORKER_NUM
 //  type = "zip"

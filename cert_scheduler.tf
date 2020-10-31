@@ -33,15 +33,25 @@ resource "tls_locally_signed_cert" "scheduler" {
   ]
 }
 
-data "archive_file" "scheduler-key-pair" {
-  type = "zip"
-  output_path = "tf-result/scheduler.zip"
-  source {
-    content = tls_private_key.scheduler.private_key_pem
-    filename = "kube-scheduler.key.pem"
-  }
-  source {
-    content = tls_locally_signed_cert.scheduler.cert_pem
-    filename = "kube-scheduler.pem"
-  }
+resource "local_file" "scheduler-pem" {
+  filename = "certs/kube-scheduler.pem"
+  sensitive_content = tls_locally_signed_cert.scheduler.cert_pem
 }
+
+resource "local_file" "scheduler-key-pem" {
+  filename = "certs/kube-scheduler-key.pem"
+  sensitive_content = tls_private_key.scheduler.private_key_pem
+}
+
+//data "archive_file" "scheduler-key-pair" {
+//  type = "zip"
+//  output_path = "tf-result/scheduler.zip"
+//  source {
+//    content = tls_private_key.scheduler.private_key_pem
+//    filename = "kube-scheduler-key.pem"
+//  }
+//  source {
+//    content = tls_locally_signed_cert.scheduler.cert_pem
+//    filename = "kube-scheduler.pem"
+//  }
+//}
