@@ -10,6 +10,7 @@ provider "kubernetes" {
 }
 
 resource "kubernetes_deployment" "nginx" {
+  depends_on = [google_compute_instance.worker[0], google_compute_instance.controller[0]]
   metadata {
     name = "scalable-nginx-example"
     labels = {
@@ -19,7 +20,7 @@ resource "kubernetes_deployment" "nginx" {
 
   spec {
     replicas = 1
-//    min_ready_seconds = 60
+    min_ready_seconds = 60
     selector {
       match_labels = {
         App = "ScalableNginxExample"

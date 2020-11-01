@@ -22,12 +22,7 @@
     <list default="true" id="91f9653d-6123-437c-965b-74de617a352f" name="默认更改列表" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.terraform/plugins/selections.json" beforeDir="false" afterPath="$PROJECT_DIR$/.terraform/plugins/selections.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller.tf" beforeDir="false" afterPath="$PROJECT_DIR$/controller.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network.tf" beforeDir="false" afterPath="$PROJECT_DIR$/network.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route.tf" beforeDir="false" afterPath="$PROJECT_DIR$/route.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script/apiserver_create_role.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/script/apiserver_create_role.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script/apiserver_role_bind.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/script/apiserver_role_bind.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/variables.tf" beforeDir="false" afterPath="$PROJECT_DIR$/variables.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes.tf" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes.tf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +75,7 @@
       <workItem from="1603841530044" duration="5494000" />
       <workItem from="1603871108519" duration="9596000" />
       <workItem from="1603890754198" duration="4259000" />
-      <workItem from="1603932833975" duration="71011000" />
+      <workItem from="1603932833975" duration="80365000" />
     </task>
     <task id="LOCAL-00001" summary="instance&amp;network">
       <created>1603882000256</created>
@@ -173,7 +168,21 @@
       <option name="project" value="LOCAL" />
       <updated>1604137433725</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fix bugs about RBAC role binding">
+      <created>1604144351191</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1604144351191</updated>
+    </task>
+    <task id="LOCAL-00015" summary="the deployment and service of nginx">
+      <created>1604233587921</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1604233587921</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,7 +214,8 @@
     <MESSAGE value="modify the way of output" />
     <MESSAGE value="separate the script of bootstrapping kubernetes workers" />
     <MESSAGE value="fix bugs about RBAC role binding" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bugs about RBAC role binding" />
+    <MESSAGE value="the deployment and service of nginx" />
+    <option name="LAST_COMMIT_MESSAGE" value="the deployment and service of nginx" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1558" y="540" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604009165131">
@@ -240,10 +250,10 @@
       <screen x="0" y="23" width="2484" height="1417" />
     </state>
     <state width="500" height="445" key="SwitcherDM/0.23.2484.1417@0.23.2484.1417" timestamp="1604009299185" />
-    <state x="842" y="471" key="Vcs.Push.Dialog.v2" timestamp="1604018606966">
+    <state x="842" y="471" key="Vcs.Push.Dialog.v2" timestamp="1604233596359">
       <screen x="0" y="23" width="2484" height="1417" />
     </state>
-    <state x="842" y="471" key="Vcs.Push.Dialog.v2/0.23.2484.1417@0.23.2484.1417" timestamp="1604018606966" />
+    <state x="842" y="471" key="Vcs.Push.Dialog.v2/0.23.2484.1417@0.23.2484.1417" timestamp="1604233596359" />
     <state x="1003" y="318" width="580" height="735" key="find.popup" timestamp="1604122475730">
       <screen x="0" y="23" width="2484" height="1417" />
     </state>
