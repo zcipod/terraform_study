@@ -7,6 +7,14 @@ terraform {
       source = "hashicorp/kubernetes"
     }
   }
+
+  backend "remote" {
+    organization = "kubernetes-the-hard-way"
+
+    workspaces {
+      name = "gh-actions"
+    }
+  }
 }
 
 provider "google" {

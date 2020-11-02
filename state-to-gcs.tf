@@ -1,12 +1,4 @@
 terraform {
-  backend "remote" {
-    organization = "kubernetes-the-hard-way"
-
-    workspaces {
-      name = "gh-actions"
-    }
-  }
-
   backend "gcs" {
     bucket  = "tf-state-zcipod"
     prefix  = "terraform/state"
