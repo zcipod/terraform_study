@@ -12,7 +12,7 @@ terraform {
     organization = "kubernetes-the-hard-way"
 
     workspaces {
-      name = "gh-actions"
+      name = "terraform_study"
     }
   }
 }
