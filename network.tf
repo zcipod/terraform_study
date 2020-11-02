@@ -65,7 +65,8 @@ resource "google_compute_firewall" "firewall-allow-worker-0-nodeport" {
   network = google_compute_network.vpc_network.id
 
   allow {
-    protocol = 30201
+    protocol = "tcp"
+    ports = ["30201"]
   }
 }
 
