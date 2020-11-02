@@ -20,7 +20,6 @@ terraform {
 provider "google" {
   version = "3.5.0"
 
-
 //  credentials = file("Kube-terraform-2f633e51bc7c.json")
 
   project = var.PROJECT_ID
