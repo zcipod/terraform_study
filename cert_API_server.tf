@@ -44,25 +44,12 @@ resource "tls_locally_signed_cert" "api-server" {
   ]
 }
 
-resource "local_file" "api-server-pem" {
-  filename = "certs/kubernetes.pem"
-  sensitive_content = tls_locally_signed_cert.api-server.cert_pem
-}
-
-resource "local_file" "api-server-key-pem" {
-  filename = "certs/kubernetes-key.pem"
-  sensitive_content = tls_private_key.api-server.private_key_pem
-}
-
-//data "archive_file" "api-server-key-pair" {
-//  type = "zip"
-//  output_path = "tf-result/api-server.zip"
-//  source {
-//    content = tls_private_key.api-server.private_key_pem
-//    filename = "kube-api-server.key.pem"
-//  }
-//  source {
-//    content = tls_locally_signed_cert.api-server.cert_pem
-//    filename = "kube-api-server.pem"
-//  }
+//resource "local_file" "api-server-pem" {
+//  filename = "certs/kubernetes.pem"
+//  sensitive_content = tls_locally_signed_cert.api-server.cert_pem
+//}
+//
+//resource "local_file" "api-server-key-pem" {
+//  filename = "certs/kubernetes-key.pem"
+//  sensitive_content = tls_private_key.api-server.private_key_pem
 //}
