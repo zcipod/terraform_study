@@ -33,25 +33,12 @@ resource "tls_locally_signed_cert" "controller" {
   ]
 }
 
-resource "local_file" "controller-manager-pem" {
-  filename = "certs/kube-controller-manager.pem"
-  sensitive_content = tls_locally_signed_cert.controller.cert_pem
-}
-
-resource "local_file" "controller-manager-key-pem" {
-  filename = "certs/kube-controller-manager-key.pem"
-  sensitive_content = tls_private_key.controller.private_key_pem
-}
-
-//data "archive_file" "controller-key-pair" {
-//  type = "zip"
-//  output_path = "tf-result/controller.zip"
-//  source {
-//    content = tls_private_key.controller.private_key_pem
-//    filename = "kube-controller-manager.key.pem"
-//  }
-//  source {
-//    content = tls_locally_signed_cert.controller.cert_pem
-//    filename = "kube-controller-manager.pem"
-//  }
+//resource "local_file" "controller-manager-pem" {
+//  filename = "certs/kube-controller-manager.pem"
+//  sensitive_content = tls_locally_signed_cert.controller.cert_pem
+//}
+//
+//resource "local_file" "controller-manager-key-pem" {
+//  filename = "certs/kube-controller-manager-key.pem"
+//  sensitive_content = tls_private_key.controller.private_key_pem
 //}

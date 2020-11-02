@@ -33,28 +33,12 @@ resource "tls_locally_signed_cert" "admin" {
   ]
 }
 
-resource "local_file" "admin-pem" {
-  filename = "certs/admin.pem"
-  sensitive_content = tls_locally_signed_cert.admin.cert_pem
-}
-
-resource "local_file" "admin-key-pem" {
-  filename = "certs/admin-key.pem"
-  sensitive_content = tls_private_key.admin.private_key_pem
-}
-
-
-
-
-//data "archive_file" "admin-key-pair" {
-//  type = "zip"
-//  output_path = "tf-result/admin.zip"
-//  source {
-//    content = tls_private_key.admin.private_key_pem
-//    filename = "admin-key.pem"
-//  }
-//  source {
-//    content = tls_locally_signed_cert.admin.cert_pem
-//    filename = "admin.pem"
-//  }
+//resource "local_file" "admin-pem" {
+//  filename = "certs/admin.pem"
+//  sensitive_content = tls_locally_signed_cert.admin.cert_pem
+//}
+//
+//resource "local_file" "admin-key-pem" {
+//  filename = "certs/admin-key.pem"
+//  sensitive_content = tls_private_key.admin.private_key_pem
 //}
