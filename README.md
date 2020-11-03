@@ -38,3 +38,17 @@ All the deployment is based on GCP.
 
 6. Merge a Pull Request or Push to the main branch of the repo, it will trigger a ```terraform apply``` action in your terraform cloud. If there is no error, your can conform the apply in your Terraform cloud, then all the changes will be deployed to  your GCP.
 
+### Note
+
+#### Auto generated certificates/pem
+
+All the certificates are sensitive, please keep them save
+
+All the pem files will not output by default. If you want to use them anywhere else, uncomment the ```resource "local_file"``` section in the cert_xxx.tf files. Then the selected certificate files will output in /certs/
+
+#### tfstate file
+
+The tfstate file is sensitive. If you run this project locally, please keep it save.
+
+If you run this project on terraform cloud, the state will be saved in the cloud.
+
