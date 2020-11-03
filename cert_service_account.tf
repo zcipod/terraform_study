@@ -33,25 +33,12 @@ resource "tls_locally_signed_cert" "service-account" {
   ]
 }
 
-resource "local_file" "service-account-pem" {
-  filename = "certs/service-account.pem"
-  sensitive_content = tls_locally_signed_cert.service-account.cert_pem
-}
-
-resource "local_file" "service-account-key-pem" {
-  filename = "certs/service-account-key.pem"
-  sensitive_content = tls_private_key.service-account.private_key_pem
-}
-
-//data "archive_file" "service-account-key-pair" {
-//  type = "zip"
-//  output_path = "tf-result/service-account.zip"
-//  source {
-//    content = tls_private_key.service-account.private_key_pem
-//    filename = "kube-service-account.key.pem"
-//  }
-//  source {
-//    content = tls_locally_signed_cert.service-account.cert_pem
-//    filename = "kube-service-account.pem"
-//  }
+//resource "local_file" "service-account-pem" {
+//  filename = "certs/service-account.pem"
+//  sensitive_content = tls_locally_signed_cert.service-account.cert_pem
+//}
+//
+//resource "local_file" "service-account-key-pem" {
+//  filename = "certs/service-account-key.pem"
+//  sensitive_content = tls_private_key.service-account.private_key_pem
 //}
