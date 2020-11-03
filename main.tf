@@ -7,13 +7,9 @@ terraform {
       source = "hashicorp/kubernetes"
     }
   }
-
-  backend "remote" {
-    organization = "kubernetes-the-hard-way"
-
-    workspaces {
-      name = "terraform_study"
-    }
+  backend "gcs" {
+    bucket  = "kubernetes-study"
+    prefix  = "terraform/state"
   }
 }
 
@@ -26,6 +22,7 @@ provider "google" {
   region  = var.REGION
   zone    = var.ZONE
 }
+
 
 
 

@@ -46,9 +46,33 @@ All the certificates are sensitive, please keep them save
 
 All the pem files will not output by default. If you want to use them anywhere else, uncomment the ```resource "local_file"``` section in the cert_xxx.tf files. Then the selected certificate files will output in /certs/
 
-#### tfstate file
+#### Backend
 
 The tfstate file is sensitive. If you run this project locally, please keep it save.
 
-If you run this project on terraform cloud, the state will be saved in the cloud.
+Backend is used to store the tfstate file, including "aws/s3", "gcp/gcs", "azurerm", "terraform cloud" and so on.
 
+1. Terraform Cloud
+
+```HCL2
+backend "remote" {
+  organization = "kubernetes-the-hard-way"
+
+  workspaces {
+    name = "terraform_study"
+  }
+}
+```
+
+Make sure the name of workspaces is exactly the same as that in your Terraform Cloud.
+
+2. GCS
+
+```HCL2
+backend "gcs" {
+  bucket  = "kubernetes-study"
+  prefix  = "terraform/state"
+}
+```
+
+Make sure you have already create the bucket in your gcs with the same name. The prefix is the path where the tfstate file save 
