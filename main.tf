@@ -9,7 +9,7 @@ terraform {
   }
   backend "gcs" {
     bucket  = "kubernetes-study"
-    prefix  = "terraform/state1"
+    prefix  = "terraform/state"
   }
 }
 
