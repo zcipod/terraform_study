@@ -15,7 +15,6 @@ terraform {
 //  }
   backend "remote" {
     organization = "zcipod"
-
     workspaces {
       name = "terraform_study"
     }
