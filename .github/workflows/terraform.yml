@@ -46,7 +46,7 @@ jobs:
 
             <details><summary>Show Plan</summary>
 
-            \`\`\`${process.env.PLAN.map((item)=>{if(item.indexOf("\#") != -1) {return item} else {return ""}}).join("")}\`\`\`
+            \`\`\`${process.env.PLAN.match(/\# (.+\n)/g).join("")}\`\`\`
 
             </details>
 
