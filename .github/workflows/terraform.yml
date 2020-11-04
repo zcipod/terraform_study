@@ -11,6 +11,10 @@ jobs:
     name: "Terraform"
     runs-on: ubuntu-latest
     steps:
+      - name: Set credential
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -19,7 +23,6 @@ jobs:
         with:
           # terraform_version: 0.13.0:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 
       - name: Terraform Init
         id: init
