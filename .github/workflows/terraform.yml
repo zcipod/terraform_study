@@ -48,9 +48,15 @@ jobs:
             const output = `#### Terraform Initialization ⚙️\`${{ steps.init.outcome }}\`
             #### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
 
-            <details><summary>Show Plan</summary>
+            <details><summary>Show summary</summary>
 
             \`\`\`${process.env.PLAN.match(/\# (.+\n)/g).join("")}\`\`\`
+
+            </details>
+
+            <details><summary>Show detail</summary>
+
+            \`\`\`${process.env.PLAN}\`\`\`
 
             </details>
 
