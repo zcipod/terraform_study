@@ -10,7 +10,7 @@ terraform {
   backend "gcs" {
     bucket  = "kubernetes-study"
     prefix  = "terraform/state"
-    access_token = "AIzaSyA3RU0bQepodGcSY3PfCnJDKbXTEOj-4R8"
+    access_token = "Ex6w9t+riJE38ha7Tuf0plUr+JOmU3Au6d7M78xY"
   }
 }
 
