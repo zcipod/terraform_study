@@ -34,9 +34,19 @@ All the deployment is based on GCP.
 
    ​	TF_API_TOKEN - save the credential token of your terraform cloud(generated in terraform cloud)
 
-5. Add a Pull Request in your GitHub repo, it will trigger a ```terraform plan``` action in your terraform cloud(currently unavailable)
+5. Add a Pull Request in your GitHub repo, it will trigger a ```terraform plan``` action in your terraform cloud. The main modifications will be posted on the GitHub comments.
 
 6. Merge a Pull Request or Push to the main branch of the repo, it will trigger a ```terraform apply``` action in your terraform cloud. If there is no error, your can conform the apply in your Terraform cloud, then all the changes will be deployed to  your GCP.
+
+### Auto comment by GitHub Actions
+
+The whole output of the Plan operation is too long and includes some sensitive information, so it should be filtered before commented on GitHub.
+
+In this project, "#" is used to identify the important information which indicates the name of infrastructures that should be modified. 
+
+```javascript
+process.env.PLAN.match(/\# (.+\n)/g).join("")
+```
 
 ### Note
 
@@ -64,7 +74,9 @@ backend "remote" {
 }
 ```
 
-Make sure the name of workspaces is exactly the same as that in your Terraform Cloud.
+Make sure:
+
+The organization and workspaces are exactly the same as those in your Terraform Cloud.
 
 2. GCS
 

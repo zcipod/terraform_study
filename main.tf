@@ -7,19 +7,19 @@ terraform {
       source = "hashicorp/kubernetes"
     }
   }
-//  backend "gcs" {
-//    bucket  = "kubernetes-study"
-//    prefix  = "terraform/state"
-//    credentials = var.GOOGLE_CREDENTIALS
+  backend "gcs" {
+    bucket  = "kubernetes-study"
+    prefix  = "terraform/state"
+//    credentials = file("Kube-terraform-2f633e51bc7c.json")
 //    project = var.PROJECT_ID
-//  }
-  backend "remote" {
-    organization = "zcipod"
-
-    workspaces {
-      name = "terraform_study"
-    }
   }
+//  backend "remote" {
+//    organization = "zcipod"
+//
+//    workspaces {
+//      name = "terraform_study"
+//    }
+//  }
 }
 
 provider "google" {
