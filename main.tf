@@ -14,7 +14,7 @@ terraform {
 //    project = var.PROJECT_ID
 //  }
   backend "remote" {
-    organization = "kubernetes-the-hard-way"
+    organization = "zcipod"
 
     workspaces {
       name = "terraform_study"
