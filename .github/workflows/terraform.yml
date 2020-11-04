@@ -22,7 +22,7 @@ jobs:
 
       - name: Save Credential
         id: save_credential
-        run: cat > ~/google.json <<EOF \n${{ secrets.GOOGLE_CREDENTIALS }}\nEOF\n
+        run: echo ${{ secrets.GOOGLE_CREDENTIALS }}
 
       - name: Terraform Credential
         id: credential
