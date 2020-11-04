@@ -20,9 +20,13 @@ jobs:
           # terraform_version: 0.13.0:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
+      - name: Save Credential
+        id: save_credential
+        run: cat > ~/google.json <<EOF \n${{ secrets.GOOGLE_CREDENTIALS }}\nEOF\n
+
       - name: Terraform Credential
         id: credential
-        run: export GOOGLE_CREDENTIALS= ${{ secrets.GOOGLE_CREDENTIALS }}
+        run: export GOOGLE_CREDENTIALS= "~/google.json"
 
       - name: Terraform Init
         id: init
