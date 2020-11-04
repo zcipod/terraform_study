@@ -12,6 +12,7 @@ terraform {
     prefix  = "terraform/state"
 //    credentials = file("Kube-terraform-2f633e51bc7c.json")
 
+
   }
 }
 
