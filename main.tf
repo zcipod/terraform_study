@@ -13,13 +13,6 @@ terraform {
 //    credentials = file("Kube-terraform-2f633e51bc7c.json")
 
   }
-//  backend "remote" {
-//    organization = "zcipod"
-//
-//    workspaces {
-//      name = "terraform_study"
-//    }
-//  }
 }
 
 provider "google" {
