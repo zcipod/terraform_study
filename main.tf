@@ -13,9 +13,12 @@ terraform {
 //    credentials = var.GOOGLE_CREDENTIALS
 //    project = var.PROJECT_ID
 //  }
-  backend "gcs" {
-    bucket  = "kubernetes-study"
-    prefix  = "terraform/state"
+  backend "remote" {
+    organization = "kubernetes-the-hard-way"
+
+    workspaces {
+      name = "terraform_study"
+    }
   }
 }
 
