@@ -16,8 +16,6 @@ terraform {
   backend "gcs" {
     bucket  = "kubernetes-study"
     prefix  = "terraform/state"
-    credentials = var.GOOGLE_CREDENTIALS
-    project = var.PROJECT_ID
   }
 }
 
