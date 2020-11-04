@@ -19,7 +19,7 @@ variable "CONTROLLER_NAME" {
 }
 
 variable "CONTROLLER_NUM" {
-  default = 1
+  default = 3
 }
 
 variable "CONTROLLER_TYPE" {
