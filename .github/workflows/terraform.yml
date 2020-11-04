@@ -20,11 +20,9 @@ jobs:
           # terraform_version: 0.13.0:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-
-
       - name: Terraform Credential
         id: credential
-        run: export GOOGLE_CREDENTIALS=${{ GOOGLE_CREDENTIALS }}
+        run: export GOOGLE_CREDENTIALS=${{ secrets.GOOGLE_CREDENTIALS }}
 
       - name: Terraform Init
         id: init
