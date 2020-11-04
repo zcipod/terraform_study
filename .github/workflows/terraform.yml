@@ -22,7 +22,7 @@ jobs:
 
       - name: Terraform Credential
         id: credential
-        run: export GOOGLE_CREDENTIALS=${{ secrets.GOOGLE_CREDENTIALS }}
+        run: env GOOGLE_CREDENTIALS=${{ secrets.GOOGLE_CREDENTIALS }}
 
       - name: Terraform Init
         id: init
