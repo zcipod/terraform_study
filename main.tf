@@ -11,7 +11,7 @@ terraform {
     bucket  = "kubernetes-study"
     prefix  = "terraform/state"
 //    credentials = file("Kube-terraform-2f633e51bc7c.json")
-//    project = var.PROJECT_ID
+
   }
 //  backend "remote" {
 //    organization = "zcipod"
