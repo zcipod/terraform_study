@@ -14,19 +14,25 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: GCP
+        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: '290.0.1'
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          service_account_email: ${{ secrets.GCP_SA_EMAIL }}
+          export_default_credentials: true
+
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
         with:
           # terraform_version: 0.13.0:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-      - name: Save Credential
-        id: save_credential
-        run: echo ${{ secrets.GOOGLE_CREDENTIALS }}
-
-      - name: Terraform Credential
-        id: credential
-        run: export GOOGLE_CREDENTIALS= "~/google.json"
+      - name: Terraform Format
+        id: fmt
+        run: terraform fmt -check
+        continue-on-error: true
 
       - name: Terraform Init
         id: init
