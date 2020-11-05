@@ -10,8 +10,6 @@ terraform {
   backend "gcs" {
     bucket  = "kubernetes-study"
     prefix  = "terraform/state"
-//    credentials = file("Kube-terraform-2f633e51bc7c.json")
-
   }
 }
 
