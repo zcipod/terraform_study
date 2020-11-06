@@ -18,11 +18,13 @@ All the deployment is based on GCP.
 5. Execute ```terraform apply``` in the terminal to apply all the changes
 6. Destory all the infrastructures by executing ```terraform destory```
 
-#### Trigger by Github Actions
+#### Automatic apply based on GitHub  operations
+
+##### Use Terraform Cloud
 
 1. Fork the repo to your own 
 
-2. Set up a workspace in your terraform cloud account, and assign it to your GitHub repo
+2. Set up a workspace in your terraform cloud account, choose "version control Workflow" and assign it to your GitHub repo
 
 3. Set an Environment Variables in terraform cloud: 
 
@@ -34,9 +36,57 @@ All the deployment is based on GCP.
 
    ​	TF_API_TOKEN - save the credential token of your terraform cloud(generated in terraform cloud)
 
-5. Add a Pull Request in your GitHub repo, it will trigger a ```terraform plan``` action in your terraform cloud. The main modifications will be posted on the GitHub comments.
+5. Merge a Pull Request or Push to the default branch (can be choose in your workspace) of the repo, it will trigger a ```terraform apply``` action in your terraform cloud. If there is no error, your can conform the apply in your Terraform cloud, then all the changes will be deployed to  your GCP.
 
-6. Merge a Pull Request or Push to the main branch of the repo, it will trigger a ```terraform apply``` action in your terraform cloud. If there is no error, your can conform the apply in your Terraform cloud, then all the changes will be deployed to  your GCP.
+Note: This automatic operation is done by terraform cloud. It monitors the repo automatically. By default, terraform cloud would be the backend, and maintain the status itself.
+
+##### Use GitHub Actions
+
+1. Fork the repo to your own
+2. Define the action file: ./github/workflows/terraform.yml
+
+Set up the trigger action: 
+
+```HCL2
+on:
+  push:
+    branches:
+      - the branch you would like to monitor
+  pull_request:
+```
+
+Set your own branch that you would like to monitor.
+
+3. Set up your GCP credential
+
+```HCL2
+- name: GCP
+	uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+  with:
+    version: '290.0.1'
+    project_id: ${{ secrets.GCP_PROJECT_ID }}
+    service_account_key: ${{ secrets.GCP_SA_KEY }}
+    service_account_email: ${{ secrets.GCP_SA_EMAIL }}
+    export_default_credentials: true
+```
+
+Don't forget to set your credential into GitHub secrets.
+
+```GCP_SA_KEY``` is the GCP credential json file
+
+```GCP_PROJECT_ID``` is the id of project that you would like to run the project
+
+```GCP_SA_EMAIL``` is the email address of manager
+
+4. Set up the monitor of "push" action
+
+```HCL2
+- name: Terraform Apply
+  if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+  run: terraform apply -auto-approve
+```
+
+replace ```refs/heads/main``` with your own branch name, should be the same as defined  in step2
 
 ### Auto comment by GitHub Actions
 
@@ -59,6 +109,10 @@ All the pem files will not output by default. If you want to use them anywhere e
 #### Backend
 
 The tfstate file is sensitive. If you run this project locally, please keep it save.
+
+If you don't declare a backend in your project, the state will be saved locally by default. So if you run the command on your computer, the file will be saved into the project directory.
+
+Note: if you run the project on Github Actions without declaring a backend, the state would be lost, because GitHub Actions are executed in temporary environment.
 
 Backend is used to store the tfstate file, including "aws/s3", "gcp/gcs", "azurerm", "terraform cloud" and so on.
 
@@ -88,3 +142,7 @@ backend "gcs" {
 ```
 
 Make sure you have already create the bucket in your gcs with the same name. The prefix is the path where the tfstate file save 
+
+If you use the same backend both in your local computer and Github Actions, the state and operation is continued. 
+
+So if you would like to destroy the infrastructures which created by GitHub Actions, you can run ```terraform destroy``` on your local computer with the declaration of the same backend.
