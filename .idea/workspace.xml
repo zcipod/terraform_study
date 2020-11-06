@@ -21,6 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="91f9653d-6123-437c-965b-74de617a352f" name="默认更改列表" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.terraform/plugins/selections.json" beforeDir="false" afterPath="$PROJECT_DIR$/.terraform/plugins/selections.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +29,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="test_action" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="CREATE_PULL_REQUEST_DEFAULT_BRANCH" value="main" />
+    <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_USER" value="zcipod" />
+    <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_NAME" value="terraform_study" />
   </component>
   <component name="ProjectId" id="1jTvirx99E2AJQIRNcQjOUj3UFk" />
   <component name="ProjectViewState">
@@ -44,7 +55,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="TF_FMT" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/certs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/doc" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
@@ -57,6 +68,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/doc" />
       <recent name="$PROJECT_DIR$/certs" />
       <recent name="$PROJECT_DIR$/certificates" />
     </key>
@@ -74,6 +86,7 @@
       <workItem from="1603871108519" duration="9596000" />
       <workItem from="1603890754198" duration="4259000" />
       <workItem from="1603932833975" duration="86328000" />
+      <workItem from="1604567910271" duration="12134000" />
     </task>
     <task id="LOCAL-00001" summary="instance&amp;network">
       <created>1603882000256</created>
@@ -250,7 +263,161 @@
       <option name="project" value="LOCAL" />
       <updated>1604284312861</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="add environment variable">
+      <created>1604530257268</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1604530257268</updated>
+    </task>
+    <task id="LOCAL-00027" summary="test action">
+      <created>1604530330751</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1604530330751</updated>
+    </task>
+    <task id="LOCAL-00028" summary="export google credential to runtime">
+      <created>1604530724574</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1604530724574</updated>
+    </task>
+    <task id="LOCAL-00029" summary="test action">
+      <created>1604530800346</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1604530800346</updated>
+    </task>
+    <task id="LOCAL-00030" summary="test action">
+      <created>1604530967445</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1604530967445</updated>
+    </task>
+    <task id="LOCAL-00031" summary="test action">
+      <created>1604531388122</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1604531388122</updated>
+    </task>
+    <task id="LOCAL-00032" summary="use echo">
+      <created>1604532010138</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1604532010138</updated>
+    </task>
+    <task id="LOCAL-00033" summary="try to add credential into actions">
+      <created>1604578808027</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1604578808027</updated>
+    </task>
+    <task id="LOCAL-00034" summary="test action">
+      <created>1604578864616</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1604578864616</updated>
+    </task>
+    <task id="LOCAL-00035" summary="add gcp credential to actions">
+      <created>1604579385886</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1604579385886</updated>
+    </task>
+    <task id="LOCAL-00036" summary="test action again">
+      <created>1604579442483</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1604579442483</updated>
+    </task>
+    <task id="LOCAL-00037" summary="test action again">
+      <created>1604581887165</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1604581887165</updated>
+    </task>
+    <task id="LOCAL-00038" summary="test action again">
+      <created>1604582752566</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1604582752566</updated>
+    </task>
+    <task id="LOCAL-00039" summary="test action again">
+      <created>1604583698196</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1604583698196</updated>
+    </task>
+    <task id="LOCAL-00040" summary="test action again">
+      <created>1604584022298</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1604584022298</updated>
+    </task>
+    <task id="LOCAL-00041" summary="test action again">
+      <created>1604584367649</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1604584367649</updated>
+    </task>
+    <task id="LOCAL-00042" summary="fix push action">
+      <created>1604586529362</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1604586529362</updated>
+    </task>
+    <task id="LOCAL-00043" summary="test push action">
+      <created>1604586640188</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1604586640188</updated>
+    </task>
+    <task id="LOCAL-00044" summary="fix push action">
+      <created>1604586747867</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1604586747867</updated>
+    </task>
+    <task id="LOCAL-00045" summary="update readme">
+      <created>1604623843241</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1604623843241</updated>
+    </task>
+    <task id="LOCAL-00046" summary="add architecture of the kubernetes cluster">
+      <created>1604627877286</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1604627877286</updated>
+    </task>
+    <task id="LOCAL-00047" summary="add architecture of the kubernetes cluster">
+      <created>1604628102965</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1604628102965</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,14 +436,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="instance&amp;network" />
-    <MESSAGE value="auto generate certs and distribute to instances" />
-    <MESSAGE value="generate kubeconfig on instances" />
-    <MESSAGE value="del state file" />
-    <MESSAGE value="etcd service finished" />
-    <MESSAGE value="HTTP Health Checks success" />
-    <MESSAGE value="Frontend Load Balancer success" />
-    <MESSAGE value="Kubernetes Worker Nodes finished" />
     <MESSAGE value="Remote Access success" />
     <MESSAGE value="add route" />
     <MESSAGE value="modify the way of output" />
@@ -290,7 +449,19 @@
     <MESSAGE value="remove gcs temporarily" />
     <MESSAGE value="fix" />
     <MESSAGE value="test actions" />
-    <option name="LAST_COMMIT_MESSAGE" value="test actions" />
+    <MESSAGE value="add environment variable" />
+    <MESSAGE value="export google credential to runtime" />
+    <MESSAGE value="use echo" />
+    <MESSAGE value="test" />
+    <MESSAGE value="try to add credential into actions" />
+    <MESSAGE value="test action" />
+    <MESSAGE value="add gcp credential to actions" />
+    <MESSAGE value="test action again" />
+    <MESSAGE value="test push action" />
+    <MESSAGE value="fix push action" />
+    <MESSAGE value="update readme" />
+    <MESSAGE value="add architecture of the kubernetes cluster" />
+    <option name="LAST_COMMIT_MESSAGE" value="add architecture of the kubernetes cluster" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1558" y="540" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604280734926">
@@ -301,22 +472,34 @@
       <screen x="0" y="23" width="2484" height="1417" />
     </state>
     <state x="1663" y="593" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.2484.1417@0.23.2484.1417" timestamp="1604009400113" />
-    <state width="1172" height="409" key="GridCell.Tab.0.bottom" timestamp="1603889686683">
-      <screen x="0" y="23" width="2484" height="1417" />
+    <state x="948" y="731" key="Github.CreatePullRequestDialog" timestamp="1604582761614">
+      <screen x="0" y="23" width="2932" height="1669" />
+    </state>
+    <state x="948" y="731" key="Github.CreatePullRequestDialog/0.23.2932.1669@0.23.2932.1669" timestamp="1604582761614" />
+    <state width="2189" height="492" key="GridCell.Tab.0.bottom" timestamp="1604532162530">
+      <screen x="0" y="23" width="2932" height="1669" />
     </state>
     <state width="1172" height="409" key="GridCell.Tab.0.bottom/0.23.2484.1417@0.23.2484.1417" timestamp="1603889686683" />
-    <state width="1172" height="409" key="GridCell.Tab.0.center" timestamp="1603889686682">
-      <screen x="0" y="23" width="2484" height="1417" />
+    <state width="2189" height="492" key="GridCell.Tab.0.bottom/0.23.2932.1669@0.23.2932.1669" timestamp="1604532162530" />
+    <state width="2189" height="492" key="GridCell.Tab.0.center" timestamp="1604532162529">
+      <screen x="0" y="23" width="2932" height="1669" />
     </state>
     <state width="1172" height="409" key="GridCell.Tab.0.center/0.23.2484.1417@0.23.2484.1417" timestamp="1603889686682" />
-    <state width="1172" height="409" key="GridCell.Tab.0.left" timestamp="1603889686681">
-      <screen x="0" y="23" width="2484" height="1417" />
+    <state width="2189" height="492" key="GridCell.Tab.0.center/0.23.2932.1669@0.23.2932.1669" timestamp="1604532162529" />
+    <state width="2189" height="492" key="GridCell.Tab.0.left" timestamp="1604532162529">
+      <screen x="0" y="23" width="2932" height="1669" />
     </state>
     <state width="1172" height="409" key="GridCell.Tab.0.left/0.23.2484.1417@0.23.2484.1417" timestamp="1603889686681" />
-    <state width="1172" height="409" key="GridCell.Tab.0.right" timestamp="1603889686682">
-      <screen x="0" y="23" width="2484" height="1417" />
+    <state width="2189" height="492" key="GridCell.Tab.0.left/0.23.2932.1669@0.23.2932.1669" timestamp="1604532162529" />
+    <state width="2189" height="492" key="GridCell.Tab.0.right" timestamp="1604532162530">
+      <screen x="0" y="23" width="2932" height="1669" />
     </state>
     <state width="1172" height="409" key="GridCell.Tab.0.right/0.23.2484.1417@0.23.2484.1417" timestamp="1603889686682" />
+    <state width="2189" height="492" key="GridCell.Tab.0.right/0.23.2932.1669@0.23.2932.1669" timestamp="1604532162530" />
+    <state x="755" y="626" key="MultipleFileMergeDialog" timestamp="1604584387236">
+      <screen x="0" y="23" width="2932" height="1669" />
+    </state>
+    <state x="755" y="626" key="MultipleFileMergeDialog/0.23.2932.1669@0.23.2932.1669" timestamp="1604584387236" />
     <state x="1381" y="441" key="RollbackChangesDialog" timestamp="1604280937402">
       <screen x="0" y="23" width="2484" height="1417" />
     </state>
@@ -329,10 +512,15 @@
       <screen x="0" y="23" width="2484" height="1417" />
     </state>
     <state width="500" height="445" key="SwitcherDM/0.23.2484.1417@0.23.2484.1417" timestamp="1604009299185" />
-    <state x="842" y="471" key="Vcs.Push.Dialog.v2" timestamp="1604284318519">
-      <screen x="0" y="23" width="2484" height="1417" />
+    <state x="994" y="551" key="Vcs.Push.Dialog.v2" timestamp="1604627881450">
+      <screen x="0" y="23" width="2932" height="1669" />
     </state>
     <state x="842" y="471" key="Vcs.Push.Dialog.v2/0.23.2484.1417@0.23.2484.1417" timestamp="1604284318519" />
+    <state x="994" y="551" key="Vcs.Push.Dialog.v2/0.23.2932.1669@0.23.2932.1669" timestamp="1604627881450" />
+    <state x="824" y="596" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1604578873969">
+      <screen x="0" y="23" width="2932" height="1669" />
+    </state>
+    <state x="824" y="596" key="com.intellij.dvcs.ui.CompareBranchesDialog/0.23.2932.1669@0.23.2932.1669" timestamp="1604578873969" />
     <state x="1003" y="318" width="580" height="735" key="find.popup" timestamp="1604122475730">
       <screen x="0" y="23" width="2484" height="1417" />
     </state>
