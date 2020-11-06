@@ -6,6 +6,10 @@ Terraform is used to automate the whole process to build the infrastructures, cr
 
 All the deployment is based on GCP.
 
+### Architecture of this Project
+
+![architecture](./doc/architecture.png)
+
 ### How to use
 
 #### Operate locally
