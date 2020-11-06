@@ -6,13 +6,13 @@ Terraform is used to automate the whole process to build the infrastructures, cr
 
 All the deployment is based on GCP.
 
-### Architecture of this Project
+## Architecture of this Project
 
 ![architecture](./doc/architecture.png)
 
-### How to use
+## How to use
 
-#### Operate locally
+### Operate locally
 
 1. Assign your GCP credential json file in main.tf/provider "google"
 
@@ -22,9 +22,9 @@ All the deployment is based on GCP.
 5. Execute ```terraform apply``` in the terminal to apply all the changes
 6. Destory all the infrastructures by executing ```terraform destory```
 
-#### Automatic apply based on GitHub  operations
+### Automatic apply based on GitHub  operations
 
-##### Use Terraform Cloud
+#### Use Terraform Cloud
 
 1. Fork the repo to your own 
 
@@ -44,7 +44,7 @@ All the deployment is based on GCP.
 
 Note: This automatic operation is done by terraform cloud. It monitors the repo automatically. By default, terraform cloud would be the backend, and maintain the status itself.
 
-##### Use GitHub Actions
+#### Use GitHub Actions
 
 1. Fork the repo to your own
 2. Define the action file: ./github/workflows/terraform.yml
@@ -92,7 +92,7 @@ Don't forget to set your credential into GitHub secrets.
 
 replace ```refs/heads/main``` with your own branch name, should be the same as defined  in step2
 
-### Auto comment by GitHub Actions
+## Auto comment by GitHub Actions
 
 The whole output of the Plan operation is too long and includes some sensitive information, so it should be filtered before commented on GitHub.
 
@@ -102,9 +102,9 @@ In this project, "#" is used to identify the important information which indicat
 process.env.PLAN.match(/\# (.+\n)/g).join("")
 ```
 
-### Note
+## Note
 
-#### Auto generated certificates/pem
+### Auto generated certificates/pem
 
 All the certificates are sensitive, please keep them save
 
