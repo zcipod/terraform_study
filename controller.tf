@@ -1,8 +1,8 @@
 locals {
-  cluster = join(",",[for i in range(var.CONTROLLER_NUM): "${var.CONTROLLER_NAME}-${i}=https://10.240.0.1${i}:2380"])
+  CLUSTER_NAMES_WITH_PORT_2380 = join(",",[for i in range(var.CONTROLLER_NUM): "${var.CONTROLLER_NAME}-${i}=https://10.240.0.1${i}:2380"])
 }
 locals {
-  cluster-2379 = join(",",[for i in range(var.CONTROLLER_NUM): "https://10.240.0.1${i}:2379"])
+  CLUSTER_NAMES_WITH_PORT_2379 = join(",",[for i in range(var.CONTROLLER_NUM): "https://10.240.0.1${i}:2379"])
 }
 
 resource "google_compute_instance" "controller" {
@@ -112,7 +112,7 @@ resource "google_compute_instance" "controller" {
     "  --listen-client-urls https://10.240.0.1${count.index}:2379,https://127.0.0.1:2379 \\\n",
     "  --advertise-client-urls https://10.240.0.1${count.index}:2379 \\\n",
     "  --initial-cluster-token etcd-cluster-0 \\\n",
-    "  --initial-cluster ${local.cluster} \\\n",
+    "  --initial-cluster ${local.CLUSTER_NAMES_WITH_PORT_2380} \\\n",
     "  --initial-cluster-state new \\\n",
     "  --data-dir=/var/lib/etcd\n",
     "Restart=on-failure\n",
@@ -162,7 +162,7 @@ resource "google_compute_instance" "controller" {
     "--etcd-cafile=/var/lib/kubernetes/ca.pem \\\n",
     "--etcd-certfile=/var/lib/kubernetes/kubernetes.pem \\\n",
     "--etcd-keyfile=/var/lib/kubernetes/kubernetes-key.pem \\\n",
-    "--etcd-servers=${local.cluster-2379} \\\n",
+    "--etcd-servers=${local.CLUSTER_NAMES_WITH_PORT_2379} \\\n",
     "--event-ttl=1h \\\n",
     "--encryption-provider-config=/var/lib/kubernetes/encryption-config.yaml \\\n",
     "--kubelet-certificate-authority=/var/lib/kubernetes/ca.pem \\\n",
